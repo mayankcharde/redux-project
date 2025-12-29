@@ -1,0 +1,28 @@
+// import React from 'react'
+
+import { useSelector } from "react-redux";
+import ResultGrid from "../components/ResultGrid";
+import SearchBar from "../components/SearchBar";
+import Tabs from "../components/Tabs";
+
+const HomePage = () => {
+  const { query } = useSelector((store) => store.search);
+
+  return (
+    <div>
+      <SearchBar />
+
+      {/*  YAHA AGAR QUERY EMPTY NHI HAI TO TABS AND RESULT-GRID SHOW KRO NHI TO KUCH NHI BLANK CHODO */}
+      {query != "" ? (
+        <div>
+          <Tabs />
+          <ResultGrid />
+        </div>
+      ) : (
+        ""
+      )}
+    </div>
+  );
+};
+
+export default HomePage;
